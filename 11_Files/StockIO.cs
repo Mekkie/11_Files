@@ -7,8 +7,8 @@ namespace _11_Files
         public void WriteStock(StringWriter sw, Stock s)
         {
             sw.WriteLine(s.Symbol);
-            sw.WriteLine(s.PricePerShare);
-            sw.WriteLine(s.NumShares);
+            sw.WriteLine(s.Pris);
+            sw.WriteLine(s.Antal);
         }
 
         public void WriteStock(FileInfo f, Stock s)
@@ -16,8 +16,8 @@ namespace _11_Files
             StreamWriter writer = new StreamWriter(f.ToString());
             writer.WriteLine(s.Id);
             writer.WriteLine(s.Symbol);
-            writer.WriteLine(s.PricePerShare);
-            writer.WriteLine(s.NumShares);
+            writer.WriteLine(s.Pris);
+            writer.WriteLine(s.Antal);
             writer.Close();
         }
 
@@ -27,8 +27,8 @@ namespace _11_Files
             Stock s = new Stock();
             s.Id = int.Parse(reader.ReadLine());
             s.Symbol = reader.ReadLine();
-            s.PricePerShare = double.Parse(reader.ReadLine());
-            s.NumShares = int.Parse(reader.ReadLine());
+            s.Pris = double.Parse(reader.ReadLine());
+            s.Antal = int.Parse(reader.ReadLine());
             reader.Close();
             return s;
 

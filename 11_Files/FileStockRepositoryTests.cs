@@ -77,12 +77,12 @@ namespace _11_Files
         {
             IStockRepository repository = new FileStockRepository(repositoryDir);
             repository.SaveStock(yhoo);
-            yhoo.NumShares = 120;
+            yhoo.Antal = 120;
             repository.SaveStock(yhoo);
 
             IStockRepository newRepository = new FileStockRepository(repositoryDir);
             Stock loaded = newRepository.LoadStock(yhoo.Id);
-            Assert.AreEqual(120, loaded.NumShares);
+            Assert.AreEqual(120, loaded.Antal);
         }
 
         [TestMethod]

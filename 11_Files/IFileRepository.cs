@@ -8,6 +8,6 @@ namespace _11_Files
 {
     public interface IFileRepository : IStockRepository, IFileOperation
     {
-       // void SaveStock(Stock s);
+      
     }
 }

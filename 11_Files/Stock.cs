@@ -4,56 +4,45 @@ namespace _11_Files
 {
     public class Stock : IAsset
     {
-        //Fields
+        
         private string symbol;
-        private double pricepershare;
-        private int numshares;
+        private double pris;
+        private int antal;
         private long id;
 
-        //Constructors
+        
         public Stock(string symbol, double pricepershare, int numshares)
         {
             this.symbol = symbol;
-            this.pricepershare = pricepershare;
-            this.numshares = numshares;
+            this.pris = pricepershare;
+            this.antal = numshares;
         }
         public Stock()
         {
 
         }
 
-        //Methods
+        
         public double GetValue()
         {
-            return pricepershare * numshares;
+            return pris * antal;
         }
 
-        //Moved method to Portfolio for refactoring.
-        //public static double TotalValue(IAsset[] stocks)
-        //{
-        //    double sumvalue = 0;
-        //    foreach (IAsset stock in stocks)
-        //    {
-        //        sumvalue += stock.GetValue();
-        //    }
-        //    return sumvalue;
-
-        //}
-
+       
         public override string ToString()
         {
-            //"Stock[symbol=ABC,pricePerShare=12.23,numShares=50]"
-            string ppsstring = pricepershare.ToString(CultureInfo.InvariantCulture);
+           
+            string ppsstring = pris.ToString(CultureInfo.InvariantCulture);
 
             return "Stock[symbol=" + this.symbol + ",pricePerShare="
-                + ppsstring + ",numShares=" + this.numshares + "]";
+                + ppsstring + ",numShares=" + this.antal + "]";
         }
 
         public override bool Equals(object obj)
         {
             Stock s = (Stock)obj;
-            if (this.symbol == s.Symbol && this.pricepershare == s.PricePerShare 
-                && this.numshares == s.NumShares)
+            if (this.symbol == s.Symbol && this.pris == s.Pris 
+                && this.antal == s.Antal)
             { return true; }
             else
             { return false; }
@@ -64,7 +53,6 @@ namespace _11_Files
             return base.GetHashCode();
         }
 
-        //Properties
 
         public string Symbol
         {
@@ -72,16 +60,16 @@ namespace _11_Files
             set { this.symbol = value; }
         }
 
-        public double PricePerShare
+        public double Pris
         {
-            get { return this.pricepershare; }
-            set { this.pricepershare = value; }
+            get { return this.pris; }
+            set { this.pris = value; }
         }
 
-        public int NumShares
+        public int Antal
         {
-            get { return this.numshares; }
-            set { this.numshares = value; }
+            get { return this.antal; }
+            set { this.antal = value; }
         }
 
         public long Id
